@@ -9,32 +9,42 @@
 >**You dont need to call PreProcess seperately. It will be internally called.**
 ><div>
     
-<b>Step 1 (Loading dataset):</b>
+<b>For train data set</b>
 
-    dataDir=''
-    #  dataType='full'             use 'full'for train
-    #  dataType='mask_subject'     use 'mask_subject','mask_modality', 'mask_time' for test
-    dataType='full'
-    dataset = load_dataset("GroNLP/ik-nlp-22_pestyle", dataType, data_dir=dataDir)
+    from datasets import load_dataset
+    dataDir='dataset/IK_NLP_22_PESTYLE'
+    dataset = load_dataset("GroNLP/ik-nlp-22_pestyle", "full", data_dir=dataDir)
+    
+    training_whole_dataset = dataset["train"]
+    new_df= pd.DataFrame(data=training_whole_dataset)
 
-<b>Step 2 (creating data frame):</b>
+    #Preprocessing is done during creating below dataframe   
+    new_dfSubjects=createMaskSubjectDataFrame(new_df)
 
-    # split='train'    or    split='test' 
-    split='train'      
-    data = dataset[split]
-    new_df = pd.DataFrame(data=data)
 
-<b>Step 3 (PreProcessing):</b>
+<b>For mask_subject test data</b>
+    dataDir='dataset/IK_NLP_22_PESTYLE'
+    dataset_test_subject = load_dataset("GroNLP/ik-nlp-22_pestyle", "mask_subject", data_dir=dataDir)
+    test_subject = dataset_test_subject["test"]
+    test_subject_df = pd.DataFrame(data=test_subject)
+    #Preprocessing is done during creating below dataframe 
+    test_subject_pre_df=createMaskSubjectDataFrame(test_subject_df)
 
-    if dataType=='mask_subject': 
-        nnw=createMaskSubjectDataFrame(new_df)
-    elif dataType=='mask_modality':
-        nnw=createMaskModalityDataFrame(new_df)
-    elif dataType=='mask_time':
-        nnw=createMaskTimeDataFrame(new_df)
-    elif dataType=='full':
-        nnw=createMaindataFrame(new_df) 
-    nnw
+<b>For mask_modality test data</b>
+    dataDir='dataset/IK_NLP_22_PESTYLE'
+    dataset_test_modality = load_dataset("GroNLP/ik-nlp-22_pestyle", "mask_modality", data_dir=dataDir)
+    test_modality = dataset_test_modality["test"]
+    test_modality_df = pd.DataFrame(data=test_modality)
+    #Preprocessing is done during creating below dataframe 
+    test_modality_pre_df=createMaskModalityDataFrame(test_modality_df)
+
+<b>For mask_edit test data</b>
+    dataDir='dataset/IK_NLP_22_PESTYLE'
+    dataset_test_time = load_dataset("GroNLP/ik-nlp-22_pestyle", "mask_time", data_dir=dataDir)
+    test_time = dataset_test_time["test"]
+    test_time_df = pd.DataFrame(data=test_time)
+    #Preprocessing is done during creating below dataframe 
+    test_time_pre_df=createMaskTimeDataFrame(test_time_df)
 
 
   </div>
