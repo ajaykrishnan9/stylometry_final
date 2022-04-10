@@ -46,13 +46,20 @@
     test_time_df = pd.DataFrame(data=test_time)
     #Preprocessing is done during creating below dataframe 
     test_time_pre_df=createMaskTimeDataFrame(test_time_df)
-
+    
+    
+<b>Models for subject, modality and edit time prediction</b>
+    
+    Following notebooks are used for prediction of the subject, model and edit time. In all the notebook following steps are done:
+    Step 1 - Data is loaded
+    Step 2 - Pre-processed according to the problem statement is performed 
+    Step 3 - Modeling of the algorithm as well as prediction is done based on the train test split . 
+    Step 4 - Finally all the models are evaluated on their respective mask test dataset.
+    
+    Subject -  "Stylometry_Subject_Prediction" notebook is used for predicting the subject.
+    Modality - "Stylometry_Modality_Prediction" notebook is used for modality prediction.
+               "Stylometry_Modality_Prediction-Machine_Translation_Combined" notebook is used for modality prediction when machine translations are combined.
+    Edit time -"Stylometry_Edit_time_Prediction" - notebook is used for edit time prediction. 
 
   </div>
    
-
-How to train the models on the data 
-
-How to use one of your already trained models to predict unseen data 
-
-How to evaluate the output 
