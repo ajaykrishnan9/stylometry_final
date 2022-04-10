@@ -60,6 +60,11 @@
     Modality - "Stylometry_Modality_Prediction" notebook is used for modality prediction.
                "Stylometry_Modality_Prediction-Machine_Translation_Combined" notebook is used for modality prediction when machine translations are combined.
     Edit time -"Stylometry_Edit_time_Prediction" - notebook is used for edit time prediction. 
+    
+<b>Data Analysis</b>  
+    
+    Technical and Temporal Analysis - "stylometry_technical_temporal_analysis" - notebook is used for this analysis effort.
+    Cognitive Analysis - "stylometry_cognitive_analysis" - notebook is used for this analysis effort.
 
   </div>
    
